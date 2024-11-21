@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Satisfaction Score</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    /* Main Body Styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #f5f7fa, #c3cfe2);
+      overflow: hidden;
+    }
+
+    /* Floating animated circles */
+    .background-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      background: #a0c4ff;
+      animation: float 5s ease-in-out infinite alternate;
+    }
+    .circle1 { width: 200px; height: 200px; top: 20%; left: 10%; }
+    .circle2 { width: 300px; height: 300px; top: 70%; left: 75%; }
+
+    @keyframes float {
+      to { transform: translateY(-20px) translateX(-20px); }
+    }
+
+    /* Main Container Styling */
+    .container {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      width: 800px;
+      height: 600px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    /* Circular Satisfaction Meter */
+    .circle-meter {
+      width: 180px;
+      height: 180px;
+      background: conic-gradient(#4a90e2 var(--score, 0%), #e0e0e0 0%);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      transition: background 0.3s;
+    }
+    .circle-text {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: bold;
+    }
+    .icon {
+      font-size: 3rem;
+      color: #4a90e2;
+      transition: transform 0.3s;
+    }
+    .icon:hover { transform: scale(1.1); }
+
+    /* Satisfaction Message */
+    .satisfaction-message {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #777;
+      margin-top: 10px;
+      transition: color 0.3s;
+    }
+
+    /* Slider */
+    .slider-container {
+      width: 80%;
+      margin-top: 20px;
+    }
+    #satisfactionSlider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+    }
+    #satisfactionSlider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #4a90e2;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Circles -->
+  <div class="background-circle circle1"></div>
+  <div class="background-circle circle2"></div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h1>Employee Satisfaction score</h1>
+
+    <!-- Circular Meter -->
+    <div id="circleMeter" class="circle-meter">
+      <div id="circleText" class="circle-text">3</div>
+    </div>
+
+    <!-- Satisfaction Icon -->
+    <div id="satisfactionIcon" class="icon">{{satisfaction_icon}}</div>
+
+    <!-- Satisfaction Message -->
+    <div id="satisfactionMessage" class="satisfaction-message">{{satisfaction_message}}</div>
+
+    <!-- Slider Input -->
+    <div class="slider-container">
+    <div id="satisfaction" onload="updateSatisfaction()" hidden>{{satisfaction_score}}</div>
+  </div>
+
+  <script>
+    function updateSatisfaction() {
+      const slider = document.getElementById("satisfaction");
+      const circleMeter = document.getElementById("circleMeter");
+      const circleText = document.getElementById("circleText");
+      const satisfactionIcon = document.getElementById("satisfactionIcon");
+      const satisfactionMessage = document.getElementById("satisfactionMessage");
+        // console.log(slider.innerText);
+      let score =parseFloat(slider.innerText);
+      circleText.innerText = score;
+        score = Math.round(score,0);
+      // Update circular meter fill
+      const fillPercentage = score * 20;
+      circleMeter.style.setProperty("--score", fillPercentage + "%");
+
+      // Set icon and message based on score
+      let message = "";
+      let icon = "";
+      switch(score) {
+        case 1:
+          message = "Very Unsatisfied";
+          icon = "😞";
+          break;
+        case 2:
+          message = "Not Satisfied";
+          icon = "😕";
+          break;
+        case 3:
+          message = "Content with the job!";
+          icon = "😊";
+          break;
+        case 4:
+          message = "Happy at work!";
+          icon = "😀";
+          break;
+        case 5:
+          message = "Absolutely Thrilled!";
+          icon = "😍";
+          break;
+      }
+      satisfactionMessage.innerText = message;
+      satisfactionIcon.innerText = icon;
+    }
+
+    // Initialize default satisfaction score
+    document.addEventListener("DOMContentLoaded", updateSatisfaction);
+  </script>
+</body>
+</html>

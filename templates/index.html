@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Satisfaction Score Predictor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles for a compact, responsive layout */
+    .form-group {
+      margin-bottom: 10px; /* Reduce space between form groups */
+    }
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 10px; /* Reduced padding on smaller screens */
+      }
+    }
+    @media (min-width: 768px) {
+      .form-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns for medium+ screens */
+        gap: 15px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Employee Satisfaction Predictor</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="jumbotron text-center bg-primary text-white">
+    <h1>Welcome to the Employee Satisfaction Score Predictor</h1>
+    <p>Predict employee satisfaction scores based on key indicators.</p>
+  </div>
+
+  <!-- Content Section -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <h3>Enter Employee Data</h3>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Prediction Form -->
+        <form method="POST">
+          {{ form.hidden_tag() }}
+
+          <div class="form-container">
+            <!-- Form Fields - 2 Columns for Medium+ Screens -->
+            <div class="form-group">
+              {{ form.department.label }}
+              {{ form.department(class="form-control") }}
+              {% if form.department.errors %}
+                <small class="text-danger">{{ form.department.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.gender.label }}
+              {{ form.gender(class="form-control") }}
+              {% if form.gender.errors %}
+                <small class="text-danger">{{ form.gender.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.age.label }}
+              {{ form.age(class="form-control") }}
+              {% if form.age.errors %}
+                <small class="text-danger">{{ form.age.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.job_title.label }}
+              {{ form.job_title(class="form-control") }}
+              {% if form.job_title.errors %}
+                <small class="text-danger">{{ form.job_title.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+
+            <div class="form-group">
+              {{ form.years_at_company.label }}
+              {{ form.years_at_company(class="form-control") }}
+              {% if form.years_at_company.errors %}
+                <small class="text-danger">{{ form.years_at_company.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.education_level.label }}
+              {{ form.education_level(class="form-control") }}
+              {% if form.education_level.errors %}
+                <small class="text-danger">{{ form.education_level.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.performance_score.label }}
+              {{ form.performance_score(class="form-control") }}
+              {% if form.performance_score.errors %}
+                <small class="text-danger">{{ form.performance_score.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.monthly_salary.label }}
+              {{ form.monthly_salary(class="form-control") }}
+              {% if form.monthly_salary.errors %}
+                <small class="text-danger">{{ form.monthly_salary.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.work_hours_per_week.label }}
+              {{ form.work_hours_per_week(class="form-control") }}
+              {% if form.work_hours_per_week.errors %}
+                <small class="text-danger">{{ form.work_hours_per_week.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.projects_handled.label }}
+              {{ form.projects_handled(class="form-control") }}
+              {% if form.projects_handled.errors %}
+                <small class="text-danger">{{ form.projects_handled.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.overtime_hours.label }}
+              {{ form.overtime_hours(class="form-control") }}
+              {% if form.overtime_hours.errors %}
+                <small class="text-danger">{{ form.overtime_hours.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.sick_days.label }}
+              {{ form.sick_days(class="form-control") }}
+              {% if form.sick_days.errors %}
+                <small class="text-danger">{{ form.sick_days.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.remote_work_frequency.label }}
+              {{ form.remote_work_frequency(class="form-control") }}
+              {% if form.remote_work_frequency.errors %}
+                <small class="text-danger">{{ form.remote_work_frequency.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.team_size.label }}
+              {{ form.team_size(class="form-control") }}
+              {% if form.team_size.errors %}
+                <small class="text-danger">{{ form.team_size.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.training_hours.label }}
+              {{ form.training_hours(class="form-control") }}
+              {% if form.training_hours.errors %}
+                <small class="text-danger">{{ form.training_hours.errors[0] }}</small>
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.promotions.label }}
+              {{ form.promotions(class="form-control") }}
+              {% if form.promotions.errors %}
+                <small class="text-danger">{{ form.promotions.errors[0] }}</small>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-group text-center mt-3">
+            {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-2">
+    <p>&copy; 2024 Employee Satisfaction Predictor. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
