@@ -57,7 +57,7 @@ Included files to set up the environment:
 A ready-to-use Dockerfile to containerize the project for deployment.
 
 ### 8. **Deployment**  
-- **URL:** [Deployed service link, if applicable]  
+- **URL:** [Deployed here](https://pd-shiva-employeesa-e052ac49d33647c988966e33c4fbe596.community.saturnenterprise.io) 
 - **Media:** Screenshots or video demo of the deployed service interaction.  
 
 ---
