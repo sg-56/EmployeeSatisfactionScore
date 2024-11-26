@@ -1,7 +1,15 @@
 # 🛠️ Project Name: Employee Satisfaction score prediction
 
 ## 📖 Overview
-Welcome to **Employee Satisfaction score predictor**, where we take on the exciting challenge of solving **[brief description of the problem]**. This repository is your one-stop guide to everything from data preparation to deploying a fully functional service.
+Welcome to **Employee Satisfaction score predictor**, where we take on the exciting challenge of solving **This dataset contains **100,000 rows of data** capturing key aspects of employee performance, productivity, and demographics in a corporate environment.**. This repository is your one-stop guide to everything from data preparation to deploying a fully functional service.
+
+
+### **Potential Use Cases**  
+
+1. **Churn Prediction**: Identifying patterns that lead to employee resignation.  
+2. **Productivity Analysis**: Understanding the factors that drive productivity, such as remote work frequency, overtime, or training hours.  
+3. **Performance Evaluation**: Analyzing how performance scores correlate with factors such as salary, team size, or education level.  
+4. **HR Analytics**: Providing insights into workforce demographics and behavior for strategic decision-making.  
 
 ---
 
@@ -31,8 +39,8 @@ A fully documented guide (yep, this file!) that details the problem, how to run 
 - **Option 1:** The dataset is included in the `Data/` folder.  
 - **Option 2:** Instructions for downloading the dataset are provided in `Data/README.md`.  
 
-### 3. **notebook.ipynb**  
-An all-in-one Jupyter Notebook that showcases:  
+### 3. **Notebpooks**  
+An Jupyter Notebooks that showcases:  
 - 🧹 Data cleaning and preparation  
 - 📊 Exploratory Data Analysis (EDA)  
 - 🌟 Feature importance insights  
