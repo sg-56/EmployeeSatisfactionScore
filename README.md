@@ -11,6 +11,8 @@ Welcome to **Employee Satisfaction score predictor**, where we take on the excit
 3. **Performance Evaluation**: Analyzing how performance scores correlate with factors such as salary, team size, or education level.  
 4. **HR Analytics**: Providing insights into workforce demographics and behavior for strategic decision-making.  
 
+### Here in our project we will be predicting the employee satisfaction score which ranges from 1 to 5 indicating whether the employee is happy with his job or not and this might help the HR team to focus on employees who might be unhappy and help them by taking actions which might reduce attrition thereby reducing company costs if in case they need to hire from scratch.
+
 ---
 
 ## 📂 Repository Structure  
