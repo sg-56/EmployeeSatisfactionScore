@@ -99,3 +99,13 @@ A ready-to-use Dockerfile to containerize the project for deployment.
 ---
 
 🎉 **Happy coding!** Make sure to star ⭐ this repo if you find it useful. Let’s build something amazing together! 
+
+
+**Please feel free to cotaact me**
+
+---
+
+- If the deployment is not working it might be taken down due to limited alloted running time,
+    I will be pausing it and would be happy to enable if you let me know.
+
+
