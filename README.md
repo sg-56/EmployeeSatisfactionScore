@@ -43,7 +43,7 @@ Automates the process of:
 - Training the final model  
 - Saving it to a file for future use  
 
-### 5. **predict.py**  
+### 5. **app.py**  
 Seamlessly integrates:  
 - Loading the trained model  
 - Serving predictions via a web service using **Flask**  
